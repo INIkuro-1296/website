@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="爆発前とかの線たち" content="爆発前とかの線たち">
+    <title>
+        爆発前とかの線たち
+    </title>
+
+    <style>
+        .flex{
+            display: flex;
+        }
+        .rightmove{
+            margin-left:auto;
+        }
+        .topmove{
+            margin:auto;
+        }
+
+    </style>
+<script language="javascript" type="text/javascript">
+
+
+
+</script>
+
+
+</head>
+<body>
+
+
+        <!-- メッセージの入力エリア -->
+        <form id="SennEdit" onsubmit="senneditJS(); return false;">
+            <table>
+                <tr>
+                    <th>
+                        爆発等のエフェクト生成.html
+                    </th>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td><input type="number" value="480" name="width"></td>
+                    <td>height</td>
+                    <td><input type="number" value="360" name="height"></td>
+                </tr>
+                <tr>
+                    <td>中心X</td>
+                    <td><input type="number" value="240" name="x_mannnaka"></td>
+                    <td>中心Y</td>
+                    <td><input type="number" value="180" name="y_mannnaka"></td>
+                </tr>
+                <tr>
+                    <td>シード値</td>
+                    <td><input type="number" value="1296" name="seed"></td>
+                </tr>
+                <tr>
+                    <td>サブ線の本数</td>
+                    <td><input type="number" value="360" name="sub_line_honsuu"></td>
+                </tr>
+                <tr>
+                    <td>サブ線の最短位置X</td>
+                    <td><input type="number" value="50" name="sub_line_minX"></td>
+                    <td>サブ線の最長位置X</td>
+                    <td><input type="number" value="100" name="sub_line_maxX"></td>
+                </tr>
+                <tr>
+                    <td>サブ線の最短位置Y</td>
+                    <td><input type="number" value="50" name="sub_line_minY"></td>
+                    <td>サブ線の最長位置Y</td>
+                    <td><input type="number" value="100" name="sub_line_maxY"></td>
+                </tr>
+                <tr>
+                    <td><label><input type="radio" name="main_line_need" value="true" checked>メイン線を入れる</label></td>
+                    <td></td>
+                    <td><label><input type="radio" name="main_line_need" value="false">メイン線を入れない</label></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>メイン線本数</td>
+                    <td><input type="number" value="4" name="main_line_honsuu"></td>
+                </tr>
+                <tr>
+                    <td>メイン線1本中のサブ線本数/2</td>
+                    <td><input type="number" value="10" name="main_line_sub_honsuu"></td>
+                    <td>メイン線1本でサブ線何本分か</td>
+                    <td><input type="number" value="10" name="main_line_sub_nannhon"></td>
+                </tr>
+                <tr>
+                    <td>メイン線の最短位置X</td>
+                    <td><input type="number" value="300" name="main_line_minX"></td>
+                    <td>メイン線の最長位置X</td>
+                    <td><input type="number" value="300" name="main_line_maxX"></td>
+                </tr>
+                <tr>
+                    <td>メイン線の最短位置Y</td>
+                    <td><input type="number" value="300" name="main_line_minY"></td>
+                    <td>メイン線の最長位置Y</td>
+                    <td><input type="number" value="300" name="main_line_maxY"></td>
+                </tr>
+                <tr>
+                    <td>外線の数(+-)</td>
+                    <td><input type="number" value="1" name="soto_line_honsuu"></td>
+                    
+                </tr>
+                <tr>
+                    <td>外線1つによる幅変化(+)</td>
+                    <td><input type="number" value="0" name="soto_line_haba"></td>
+                    <td>外線1つによる幅変化(+*)</td>
+                    <td><input type="number" value="0.3" step="0.01" name="soto_line_haba_cross"></td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="生成"><br><br>
+            <input type="reset" value="リセット"><br>
+        </form>    
+        
+<div id="return_viewbox">
+
+
+<svg viewBox="0 0 640 360" width="640" height="360" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(320,180),scale(1,-1)">
+<!--スクラッチの座標と同じ感じになって、カメラの座標の逆に行くようにしたらいい
+<g transform="translate(-100,100)">
+-->
+
+<path d="M0,0L20,0" id="graphtate"  stroke="#ffff83" stroke-width="4" fill-opacity="0"/>
+<path d="M0,0L0,20" id="graphyoko"  stroke="#83ffff" stroke-width="4" fill-opacity="0"/>
+
+<g id="posmove" transform="translate(0,0),scale(1)">
+
+
+
+
+<path d="M0 -999999L0 999999M-999999 0L999999 0" fill="none" fill-opacity="0" stroke="#808080" stroke-width="6"/>
+<circle x="0" y="0" r="12" fill="#000000"/>
+<path d="" id="graphone" fill="none" fill-opacity="0" stroke="#ee7777" stroke-width="8"/>
+<path d="" id="graphtwo" fill="none" fill-opacity="0" stroke="#77eeee" stroke-width="8"/>
+<!-- <path d="M0 0L60 0L60 60L0 60z" fill="#000000"/>-->
+
+</g>
+<!--
+</g>
+-->
+</g>
+    <rect x="0" y="0" width="640" height="360" stroke-width="6" fill-opacity="0" stroke="#575757" fill="#ffffff" />
+
+
+</svg>
+
+
+</div>
+
+
+    <input type="button" value="ダウンロード" onclick="downloading()">
+
+    
+    <script language="javascript" type="text/javascript">
+        
+        function senneditJS(){
+            
+            const seed = Number(SennEdit.seed.value);
+            const width = Number(SennEdit.width.value);
+            const height = Number(SennEdit.height.value);
+            const tyuuouX = Number(SennEdit.x_mannnaka.value);
+            const tyuuouY = Number(SennEdit.y_mannnaka.value);
+            const sub_line_honsuu = Number(SennEdit.sub_line_honsuu.value);
+            const sub_line_minX = Number(SennEdit.sub_line_minX.value);
+            const sub_line_maxX = Number(SennEdit.sub_line_maxX.value);
+            const sub_line_minY = Number(SennEdit.sub_line_minY.value);
+            const sub_line_maxY = Number(SennEdit.sub_line_maxY.value);
+            var main_line_honsuu = Number(SennEdit.main_line_honsuu.value);
+            const main_line_sub_honsuu = Number(SennEdit.main_line_sub_honsuu.value);
+            const main_line_sub_nannhon = Number(SennEdit.main_line_sub_nannhon.value);
+            const main_line_minX = Number(SennEdit.main_line_minX.value);
+            const main_line_maxX = Number(SennEdit.main_line_maxX.value);
+            const main_line_minY = Number(SennEdit.main_line_minY.value);
+            const main_line_maxY = Number(SennEdit.main_line_maxY.value);
+            const soto_line_haba = Number(SennEdit.soto_line_haba.value);
+            const soto_line_haba_cross = Number(SennEdit.soto_line_haba_cross.value);
+            const soto_line_honsuu = Number(SennEdit.soto_line_honsuu.value);
+            const random = new Random(seed);
+            if(SennEdit.main_line_need[0].checked){
+                
+            }else{
+                main_line_honsuu = 0;
+            }
+            var Data = "";
+            /*<svg viewBox="0 0 640 360" width="640" height="360" version="1.1" xmlns="http://www.w3.org/2000/svg">*/
+            Data = Data + "<svg viewBox='0 0 " + width + " " + height + "' width='" + width + "' height='" + height + "' version='1.1' xmlns='http://www.w3.org/2000/svg'>";
+            if (main_line_honsuu == 0){
+                var Datakari = "<path d='M";
+                var rotate = 0;
+                var randommemoly = [];
+                /*console.log((Number(Math.cos(deg_to_rad(rotate))*(Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(random.nextInt(0,100)/100))))+Number(tyuuouX)));*/
+                let randoming = random.nextInt(0,100)/200;
+                randommemoly.push(randoming);
+                Datakari = Datakari + (Number(Math.cos(deg_to_rad(rotate))*(Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(randoming))))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*(Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*(randoming))))+Number(tyuuouY));
+                rotate += 360/sub_line_honsuu;
+                
+                for (let i = 0; i < sub_line_honsuu-1; i++) {
+                    
+                    if (i%2==0){
+                        randoming = random.nextInt(0,100)/200 + 0.5;
+                    }else{
+                        randoming = random.nextInt(0,100)/200;
+                    }
+                    randommemoly.push(randoming);
+                    Datakari = Datakari + "L" + (Number(Math.cos(deg_to_rad(rotate))*(Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(randoming))))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*(Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*(randoming))))+Number(tyuuouY));
+
+                    rotate += 360/sub_line_honsuu;
+                }
+                Datakari = Datakari + "z' fill='#000000' />";
+                var sotowaku = [];
+                for (let j = 0; j < soto_line_honsuu; j++){
+                    sotowaku.push("<path d='M");
+                    rotate = 0;
+                    sotowaku[j] = sotowaku[j] + (Number(Math.cos(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*(j+1)))*Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(randommemoly[0]))+Number((j + 1)*soto_line_haba)))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*(j+1)))*Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*(randommemoly[0]))+Number((j + 1)*soto_line_haba)))+Number(tyuuouY));
+                    rotate += 360/sub_line_honsuu;
+                    for (let i = 1; i < sub_line_honsuu; i++) {
+                        sotowaku[j] = sotowaku[j] + "L" + (Number(Math.cos(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*(j+1)))*Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(randommemoly[i]))+Number((j + 1)*soto_line_haba)))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*(j+1)))*Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*(randommemoly[i]))+Number((j + 1)*soto_line_haba)))+Number(tyuuouY));
+                        rotate += 360/sub_line_honsuu;
+                    }
+                    sotowaku[j] = sotowaku[j] + "z' fill='#" + colorrandom() + "' />";
+                }
+                for (let i = 0; i < sotowaku.length; i++){
+                    Data = Data + sotowaku[sotowaku.length-1-i];
+
+                }
+                Data = Data + Datakari;
+                var sotowaku = [];
+                for (let j = 0; j < soto_line_honsuu; j++){
+                    sotowaku.push("<path d='M");
+                    rotate = 0;
+                    sotowaku[j] = sotowaku[j] + (Number(Math.cos(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*((j*-1)-1)))*Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(randommemoly[0]))+Number(((j*-1)-1)*soto_line_haba)))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*((j*-1)-1)))*Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*(randommemoly[0]))+Number(((j*-1)-1)*soto_line_haba)))+Number(tyuuouY));
+                    rotate += 360/sub_line_honsuu;
+                    for (let i = 1; i < sub_line_honsuu; i++) {
+                        sotowaku[j] = sotowaku[j] + "L" + (Number(Math.cos(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*((j*-1)-1)))*Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(randommemoly[i]))+Number(((j*-1)-1)*soto_line_haba)))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*(Number(1 + (soto_line_haba_cross*((j*-1)-1)))*Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*(randommemoly[i]))+Number(((j*-1)-1)*soto_line_haba)))+Number(tyuuouY));
+                        rotate += 360/sub_line_honsuu;
+                    }
+                    sotowaku[j] = sotowaku[j] + "z' fill='#" + colorrandom() + "' />";
+                }
+                for (let i = 0; i < sotowaku.length; i++){
+                    Data = Data + sotowaku[i];
+
+                }
+                Data = Data + "</svg>";
+                console.log(randommemoly);
+                
+            }else{
+
+
+                var Datakari = "<path d='M";
+                var rotate = 0;
+                var randommemoly = [];
+                var lengthmemolyX = [];
+                var lengthmemolyY = [];
+                /*console.log((Number(Math.cos(deg_to_rad(rotate))*(Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*(random.nextInt(0,100)/100))))+Number(tyuuouX)));*/
+                for (let j = 0; j < main_line_honsuu; j++){
+                    let randoming = random.nextInt(0,100)/200;
+                    randommemoly.push(randoming);
+                    lengthmemolyX.push(Number(main_line_minX)+Number((main_line_maxX-main_line_minX)*(randoming)));
+                    lengthmemolyY.push(Number(main_line_minY)+Number((main_line_maxY-main_line_minY)*(randoming)));
+                    let lengthing = lengthmemolyX.length-1;
+                    if(j ==0){
+                        Datakari = Datakari + (Number(Math.cos(deg_to_rad(rotate))*lengthmemolyX[lengthmemolyX.length-1])+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*lengthmemolyY[lengthmemolyY.length-1])+Number(tyuuouY));
+                    }else{
+                        Datakari = Datakari + "L" + (Number(Math.cos(deg_to_rad(rotate))*lengthmemolyX[lengthmemolyX.length-1])+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*lengthmemolyY[lengthmemolyY.length-1])+Number(tyuuouY));
+                    }
+                    rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+                    for (let i = 0; i < main_line_sub_nannhon; i++){
+                        let wariai = 1 - (Number(i) / (main_line_sub_nannhon + 0));
+                        
+                        randoming = 0.5 + Number((random.nextInt(0,100))/(100*main_line_sub_nannhon));
+                        randommemoly.push(randoming);
+                        const sblX = Number((sub_line_maxX+sub_line_minX)/2);
+                        const sblY = Number((sub_line_maxY+sub_line_minY)/2);
+                        lengthmemolyX.push((Number(sblX)+Number((lengthmemolyX[lengthing]-sblX)*(wariai)))*randoming);
+                        lengthmemolyY.push((Number(sblY)+Number((lengthmemolyY[lengthing]-sblY)*(wariai)))*randoming);
+                        
+                        Datakari = Datakari + "L" + (Number(Math.cos(deg_to_rad(rotate))*lengthmemolyX[lengthmemolyX.length-1])+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*lengthmemolyY[lengthmemolyY.length-1])+Number(tyuuouY));
+
+
+                        rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+                    }
+                    for (let i = 0; i < sub_line_honsuu/main_line_honsuu; i++) {
+                    
+                        if (i%2==0){
+                            randoming = random.nextInt(0,100)/200 + 0.5;
+                        }else{
+                            randoming = random.nextInt(0,100)/200;
+                        }
+                        randommemoly.push(randoming);
+                        lengthmemolyX.push(Number(sub_line_minX)+Number((sub_line_maxX-sub_line_minX)*randoming));
+                        lengthmemolyY.push(Number(sub_line_minY)+Number((sub_line_maxY-sub_line_minY)*randoming));
+                        Datakari = Datakari + "L" + (Number(Math.cos(deg_to_rad(rotate))*lengthmemolyX[lengthmemolyX.length-1])+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*lengthmemolyY[lengthmemolyY.length-1])+Number(tyuuouY));
+
+                        rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+                    }
+                    for (let i = 0; i < main_line_sub_nannhon; i++){
+                        let wariai = Number(i) / main_line_sub_nannhon;
+                        
+                        randoming = 0.5 + Number((random.nextInt(0,100))/(100*main_line_sub_nannhon));
+                        randommemoly.push(randoming);
+                        const sblX = Number((sub_line_maxX+sub_line_minX)/2);
+                        const sblY = Number((sub_line_maxY+sub_line_minY)/2);
+                        lengthmemolyX.push((Number(sblX)+Number((lengthmemolyX[lengthing]-sblX)*(wariai)))*randoming);
+                        lengthmemolyY.push((Number(sblY)+Number((lengthmemolyY[lengthing]-sblY)*(wariai)))*randoming);
+                        
+                        Datakari = Datakari + "L" + (Number(Math.cos(deg_to_rad(rotate))*lengthmemolyX[lengthmemolyX.length-1])+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*lengthmemolyY[lengthmemolyY.length-1])+Number(tyuuouY));
+
+
+                        rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+                    }
+
+                }
+                
+                Datakari = Datakari + "z' fill='#000000' />";
+                
+                var sotowaku = [];
+                for (let k = 0; k < soto_line_honsuu; k++){
+                    sotowaku.push("<path d='M");
+                    rotate = 0;
+                    sotowaku[k] = sotowaku[k] + (Number(Math.cos(deg_to_rad(rotate))*((lengthmemolyX[0])+Number(soto_line_haba*(k+1)))*(1 + (soto_line_haba_cross*(k+1))))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*((lengthmemolyY[0])+Number(soto_line_haba*(k+1)))*(1 + (soto_line_haba_cross*(k+1))))+Number(tyuuouY));
+                    rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+
+                    for (let i = 1; i < lengthmemolyX.length; i++) {
+                        sotowaku[k] = sotowaku[k] + "L" + (Number(Math.cos(deg_to_rad(rotate))*((lengthmemolyX[i])+Number(soto_line_haba*(k+1)))*(1 + (soto_line_haba_cross*(k+1))))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*((lengthmemolyY[i])+Number(soto_line_haba*(k+1)))*(1 + (soto_line_haba_cross*(k+1))))+Number(tyuuouY));
+                        rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+                    }
+                    sotowaku[k] = sotowaku[k] + "z' fill='#" + colorrandom() + "' />";
+                }
+                for (let i = 0; i < sotowaku.length; i++){
+                    Data = Data + sotowaku[sotowaku.length-1-i];
+
+                }
+                Data = Data + Datakari;
+
+                var sotowaku = [];
+                for (let k = 0; k < soto_line_honsuu; k++){
+                    sotowaku.push("<path d='M");
+                    rotate = 0;
+                    sotowaku[k] = sotowaku[k] + (Number(Math.cos(deg_to_rad(rotate))*((lengthmemolyX[0])+Number(soto_line_haba*((k*-1)-1)))*(1 + (soto_line_haba_cross*((k*-1)-1))))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*((lengthmemolyY[0])+Number(soto_line_haba*((k*-1)-1)))*(1 + (soto_line_haba_cross*((k*-1)-1))))+Number(tyuuouY));
+                    rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+
+                    for (let i = 1; i < lengthmemolyX.length; i++) {
+                        sotowaku[k] = sotowaku[k] + "L" + (Number(Math.cos(deg_to_rad(rotate))*((lengthmemolyX[i])+Number(soto_line_haba*((k*-1)-1)))*(1 + (soto_line_haba_cross*((k*-1)-1))))+Number(tyuuouX)) + "," + (Number(Math.sin(deg_to_rad(rotate))*((lengthmemolyY[i])+Number(soto_line_haba*((k*-1)-1)))*(1 + (soto_line_haba_cross*((k*-1)-1))))+Number(tyuuouY));
+                        rotate += 360/(sub_line_honsuu+(main_line_honsuu*main_line_sub_nannhon*2) + 1);
+                    }
+                    sotowaku[k] = sotowaku[k] + "z' fill='#" + colorrandom() + "' />";
+                }
+                for (let i = 0; i < sotowaku.length; i++){
+                    Data = Data + sotowaku[i];
+
+                }
+
+
+                Data = Data + "</svg>";
+                console.log(randommemoly);
+                console.log(lengthmemolyX);
+                console.log(lengthmemolyY);
+            }
+            document.getElementById("return_viewbox").innerHTML = Data;
+
+        }
+            
+        function deg_to_rad(deg){
+            return deg / (180/Math.PI);
+        }
+        function rad_to_deg(rad){
+            return rad * (180/Math.PI);
+        }
+        function colorrandom(){
+            let colrandom = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+            var a = "";
+            for (let i = 0; i < 6; i++) {
+                a = a + colrandom[Math.floor(Math.random()*16)];
+                
+            }
+            return a;
+        }
+        class Random {
+            constructor(seed = 88675123) {
+            this.x = 123456789;
+            this.y = 362436069;
+            this.z = 521288629;
+            this.w = seed;
+            }
+  
+            
+            next() {
+            let t;
+ 
+            t = this.x ^ (this.x << 11);
+            this.x = this.y; this.y = this.z; this.z = this.w;
+            return this.w = (this.w ^ (this.w >>> 19)) ^ (t ^ (t >>> 8)); 
+            }
+            
+            nextInt(min, max) {
+                const r = Math.abs(this.next());
+                return min + (r % (max + 1 - min));
+            }
+        }
+        function downloadAsFile(text, filename) {
+            const blob = new Blob([text], { type: "text/plain"});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloading(){
+            downloadAsFile(document.getElementById("return_viewbox").innerHTML,"download.svg");
+        }
+    </script>
+
+
+</body>
+
+
+</html>
