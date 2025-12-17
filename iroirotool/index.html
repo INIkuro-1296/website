@@ -253,6 +253,7 @@
             const fill_color = document.getElementById("fill-color").value;
             const stroke_color = document.getElementById("stroke-color").value;
             const stroke_thickness = document.getElementById("stroke-thickness").value;
+            const mbm = document.getElementById("mbm").value;
             const opacity = Number(document.getElementById("opacity").value);
             const stroke_dash_array = Number(document.getElementById("stroke-dash-array").value);
             const stroke_dash_offset = Number(document.getElementById("stroke-dash-offset").value);
@@ -267,13 +268,13 @@
                 const type1_rx = Number(document.getElementById("type1_rx").value);
                 const type1_ry = Number(document.getElementById("type1_ry").value);
                 Data = Data + "<rect x='" + (x_mannnaka - (type1_width/2)) + "' y='" + (y_mannnaka - (type1_height/2)) + "' width='" + type1_width + "' height='" + type1_height + "' rx='" + type1_rx + "' ry='" + type1_ry + "'";
-                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "'/>";
+                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "' style='mix-blend-mode:" + mbm + "'/>";
             }else if (zukeitype=="type2"){
                 typechange(2);
                 const type2_rx = Number(document.getElementById("type2_rx").value);
                 const type2_ry = Number(document.getElementById("type2_ry").value);
                 Data = Data + "<ellipse cx='" + x_mannnaka + "' cy='" + y_mannnaka + "' rx='" + type2_rx + "' ry='" + type2_ry + "'";
-                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "'/>";
+                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "' style='mix-blend-mode:" + mbm + "'/>";
 
             }else if (zukeitype=="type3"){
                 typechange(3);
