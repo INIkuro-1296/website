@@ -56,7 +56,7 @@
         <div id="Edit">
             <select id="zukei_type">
                 <option value="type1" selected>四角形</option>
-                <option value="type2">円形(開発中)</option>
+                <option value="type2">円形</option>
                 <option value="type3">扇形(開発中)</option>
                 <option value="type4">テキスト(開発中)</option>
             </select>
@@ -159,7 +159,12 @@
                         円形
                     </th>
                 </tr>
-
+                <tr>
+                    <td>X軸の半径</td>
+                    <td><input type="number" value="50" step="1" id="type2_rx"></td>
+                    <td>Y軸の半径</td>
+                    <td><input type="number" value="50" step="1" id="type2_ry"></td>
+                </tr>
 
             </table>
             <table id="select3">
@@ -265,7 +270,10 @@
                 Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "'/>";
             }else if (zukeitype=="type2"){
                 typechange(2);
-
+                const type2_rx = Number(document.getElementById("type2_rx").value);
+                const type2_ry = Number(document.getElementById("type2_ry").value);
+                Data = Data + "<ellipse cx='" + x_mannnaka + "' cy='" + y_mannnaka + "' rx='" + type2_rx + "' ry='" + type2_ry + "'";
+                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "'/>";
 
             }else if (zukeitype=="type3"){
                 typechange(3);
