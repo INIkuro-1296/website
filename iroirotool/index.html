@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="いろいろなツール" content="いろいろなツール">
+    <title>
+        いろいろなツール
+    </title>
+
+    <style>
+        .flex{
+            display: flex;
+        }
+        .rightmove{
+            margin-left:auto;
+        }
+        .topmove{
+            margin:auto;
+        }
+        th{
+            border: 1px black solid;
+        }
+        tr{
+            border: 1px black solid;
+        }
+        td{
+            border: 1px black solid;
+        }
+
+        
+        #select2{
+            display: none;
+        }
+        #select3{
+            display: none;
+        }
+        #select4{
+            display: none;
+        }
+    </style>
+<script language="javascript" type="text/javascript">
+
+
+
+</script>
+
+
+</head>
+<body>
+    <h1>いろいろな画像生成ツール.html</h1>
+
+        <!-- メッセージの入力エリア -->
+        <div id="Edit">
+            <select id="zukei_type">
+                <option value="type1" selected>四角形</option>
+                <option value="type2">円形(開発中)</option>
+                <option value="type3">扇形(開発中)</option>
+                <option value="type4">テキスト(開発中)</option>
+            </select>
+            <br><hr>
+            <table id="alldata">
+                <tr>
+                    <td>width</td>
+                    <td><input type="number" value="480" id="width"></td>
+                    <td>height</td>
+                    <td><input type="number" value="360" id="height"></td>
+                </tr>
+                <tr>
+                    <td>中心X</td>
+                    <td><input type="number" value="240" id="x_mannnaka"></td>
+                    <td>中心Y</td>
+                    <td><input type="number" value="180" id="y_mannnaka"></td>
+                </tr>
+                <tr>
+                    <td>塗りつぶす色</td>
+                    <td><input type="color" value="#000000" id="fill-color"></td>
+                </tr>
+                <tr>
+                    <td>枠線の色</td>
+                    <td><input type="color" value="#000000" id="stroke-color"></td>
+                    <td>枠線の太さ</td>
+                    <td><input type="number" value="0" step="0.01" id="stroke-thickness"></td>
+                </tr>
+                <tr>
+                    <td>不透明度</td>
+                    <td><input type="number" value="1" step="0.01" id="opacity"></td>
+                </tr>
+                <tr>
+                    <td>点線の間隔</td>
+                    <td><input type="text" value="0" step="0.1" id="stroke-dash-array"></td>
+                    <td>点線のオフセット</td>
+                    <td><input type="number" value="0" step="0.1" id="stroke-dash-offset"></td>
+                </tr>
+                <tr>
+                    <td>
+                        点線プレビュー
+                    </td>
+                    <td>
+                        <div id="stroke-test">
+                            <svg viewBox="0 0 120 10" width="120" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            
+                                <path d="M5,0L115,0" stroke-width="5" stroke="#000000" stroke-dasharray="0" stroke-dashoffset="0" />
+                            
+                            </svg>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>mix-blend-mode</td>
+                    <td>
+                        <select id="mbm">
+                            <option value="normal" selected>normal(デフォルト)</option>
+                            <option value="darken">darken(暗いほうを出す)</option>
+                            <option value="multiply">multiply(より暗くする)</option>
+                            <option value="color-burn">color-burn(multiplyより暗い)</option>
+                            <option value="lighten">lighten(明るいほうを出す)</option>
+                            <option value="screen">screen(より明るくする)</option>
+                            <option value="color-dodge">color-dodge(screenより明るい)</option>
+                            <option value="overlay">overlay(multiplyとscreenの両方)</option>
+                            <option value="soft-light">soft-light(明るさ暗さを強調)</option>
+                            <option value="hard-light">hard-light(soft-lightより強い)</option>
+                            <option value="difference">difference(差の絶対値)</option>
+                            <option value="exclusion">exclusion(differenceより弱い)</option>
+                            <option value="hue">hue(下位レイヤーの輝度Lと彩度S,上位レイヤーの色相H)</option>
+                            <option value="saturation">saturation(下位レイヤーの輝度Lと色相H,上位レイヤーの彩度S)</option>
+                            <option value="color">color(下位レイヤーの輝度L,上位レイヤーの色相Hと彩度S)</option>
+                            <option value="luminosity">luminosity(下位レイヤーの色相Hと彩度S,上位レイヤーの輝度L)</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table id="select1">
+                <tr>
+                    <th>
+                        四角形
+                    </th>
+                </tr>
+                <tr>
+                    <td>横幅</td>
+                    <td><input type="number" value="100" step="1" id="type1_width"></td>
+                    <td>縦幅</td>
+                    <td><input type="number" value="100" step="1" id="type1_height"></td>
+                </tr>
+                <tr>
+                    <td>丸くなるX大きさ</td>
+                    <td><input type="number" value="0" step="1" id="type1_rx"></td>
+                    <td>丸くなるY大きさ</td>
+                    <td><input type="number" value="0" step="1" id="type1_ry"></td>
+                </tr>
+
+            </table>
+            <table id="select2">
+                <tr>
+                    <th>
+                        円形
+                    </th>
+                </tr>
+
+
+            </table>
+            <table id="select3">
+                <tr>
+                    <th>
+                        扇形
+                    </th>
+                </tr>
+
+
+            </table>
+            <table id="select4">
+                <tr>
+                    <th>
+                        テキスト
+                    </th>
+                </tr>
+
+
+            </table>
+            <!--
+            
+                <tr>
+                    <td><label><input type="radio" name="main_line_need" value="true" checked>メイン線を入れる</label></td>
+                    <td></td>
+                    <td><label><input type="radio" name="main_line_need" value="false">メイン線を入れない</label></td>
+                    <td></td>
+                </tr>
+                
+            <input type="submit" value="生成"><br><br>
+            <input type="reset" value="リセット"><br>
+            -->
+            <br>
+        </div>
+        
+<div id="return_viewbox">
+
+
+<svg viewBox="0 0 640 360" width="640" height="360" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(320,180),scale(1,-1)">
+<!--スクラッチの座標と同じ感じになって、カメラの座標の逆に行くようにしたらいい
+<g transform="translate(-100,100)">
+-->
+
+<path d="M0,0L20,0" id="graphtate"  stroke="#ffff83" stroke-width="4" fill-opacity="0"/>
+<path d="M0,0L0,20" id="graphyoko"  stroke="#83ffff" stroke-width="4" fill-opacity="0"/>
+
+<g id="posmove" transform="translate(0,0),scale(1)">
+
+
+
+
+<path d="M0 -999999L0 999999M-999999 0L999999 0" fill="none" fill-opacity="0" stroke="#808080" stroke-width="6"/>
+<circle x="0" y="0" r="12" fill="#000000"/>
+<path d="" id="graphone" fill="none" fill-opacity="0" stroke="#ee7777" stroke-width="8"/>
+<path d="" id="graphtwo" fill="none" fill-opacity="0" stroke="#77eeee" stroke-width="8"/>
+<!-- <path d="M0 0L60 0L60 60L0 60z" fill="#000000"/>-->
+
+</g>
+<!--
+</g>
+-->
+</g>
+    <rect x="0" y="0" width="640" height="360" stroke-width="6" fill-opacity="0" stroke="#575757" fill="#ffffff" />
+
+
+</svg>
+
+
+</div>
+
+
+    <input type="button" value="ダウンロード" onclick="downloading()">
+
+    
+    <script language="javascript" type="text/javascript">
+        document.getElementById('Edit').addEventListener('change',function(event){
+            
+            document.getElementById("stroke-test").innerHTML = '<svg viewBox="0 0 120 10" width="120" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M5,0L115,0" stroke-width="5" stroke="#000000" stroke-dasharray="' + document.getElementById('stroke-dash-array').value + '" stroke-dashoffset="' + document.getElementById('stroke-dash-array').value + '" /></svg>';
+            let zukeitype = document.getElementById("zukei_type").value;
+            var Data = "";
+            const width = Number(document.getElementById("width").value);
+            const height = Number(document.getElementById("height").value);
+            const x_mannnaka = Number(document.getElementById("x_mannnaka").value);
+            const y_mannnaka = Number(document.getElementById("y_mannnaka").value);
+            const fill_color = document.getElementById("fill-color").value;
+            const stroke_color = document.getElementById("stroke-color").value;
+            const stroke_thickness = document.getElementById("stroke-thickness").value;
+            const opacity = Number(document.getElementById("opacity").value);
+            const stroke_dash_array = Number(document.getElementById("stroke-dash-array").value);
+            const stroke_dash_offset = Number(document.getElementById("stroke-dash-offset").value);
+            Data = Data + "<svg viewBox='0 0 " + width + " " + height + "' width='" + width + "' height='" + height + "' version='1.1' xmlns='http://www.w3.org/2000/svg'>";
+            
+
+
+            if (zukeitype=="type1"){
+                typechange(1);
+                const type1_width = Number(document.getElementById("type1_width").value);
+                const type1_height = Number(document.getElementById("type1_height").value);
+                const type1_rx = Number(document.getElementById("type1_rx").value);
+                const type1_ry = Number(document.getElementById("type1_ry").value);
+                Data = Data + "<rect x='" + (x_mannnaka - (type1_width/2)) + "' y='" + (y_mannnaka - (type1_height/2)) + "' width='" + type1_width + "' height='" + type1_height + "' rx='" + type1_rx + "' ry='" + type1_ry + "'";
+                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "'/>";
+            }else if (zukeitype=="type2"){
+                typechange(2);
+
+
+            }else if (zukeitype=="type3"){
+                typechange(3);
+                
+
+            }else if (zukeitype=="type4"){
+                typechange(4);
+                
+
+            }
+
+            Data = Data + "</svg>";
+            document.getElementById("return_viewbox").innerHTML = Data;
+        });
+        function typechange(typer){
+            if(typer==1){
+                document.getElementById("select1").style.display = "inline";
+            }else{
+                document.getElementById("select1").style.display = "none";
+            }
+            if(typer==2){
+                document.getElementById("select2").style.display = "inline";
+            }else{
+                document.getElementById("select2").style.display = "none";
+            }
+            if(typer==3){
+                document.getElementById("select3").style.display = "inline";
+            }else{
+                document.getElementById("select3").style.display = "none";
+            }
+            if(typer==4){
+                document.getElementById("select4").style.display = "inline";
+            }else{
+                document.getElementById("select4").style.display = "none";
+            }
+        }
+        
+        
+            
+        function deg_to_rad(deg){
+            return deg / (180/Math.PI);
+        }
+        function rad_to_deg(rad){
+            return rad * (180/Math.PI);
+        }
+        function colorrandom(){
+            let colrandom = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+            var a = "";
+            for (let i = 0; i < 6; i++) {
+                a = a + colrandom[Math.floor(Math.random()*16)];
+                
+            }
+            return a;
+        }
+        class Random {
+            constructor(seed = 88675123) {
+            this.x = 123456789;
+            this.y = 362436069;
+            this.z = 521288629;
+            this.w = seed;
+            }
+  
+            
+            next() {
+            let t;
+ 
+            t = this.x ^ (this.x << 11);
+            this.x = this.y; this.y = this.z; this.z = this.w;
+            return this.w = (this.w ^ (this.w >>> 19)) ^ (t ^ (t >>> 8)); 
+            }
+            
+            nextInt(min, max) {
+                const r = Math.abs(this.next());
+                return min + (r % (max + 1 - min));
+            }
+        }
+        function downloadAsFile(text, filename) {
+            const blob = new Blob([text], { type: "text/plain"});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloading(){
+            downloadAsFile(document.getElementById("return_viewbox").innerHTML,"download.svg");
+        }
+    </script>
+
+
+</body>
+
+
+</html>
