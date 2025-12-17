@@ -36,6 +36,9 @@
         #select4{
             display: none;
         }
+        #select5{
+            display: none;
+        }
         #return_viewbox{
             background-color:#f0f0f0;
 
@@ -59,6 +62,7 @@
                 <option value="type2">円形</option>
                 <option value="type3">扇形(開発中)</option>
                 <option value="type4">テキスト(開発中)</option>
+                <option value="type5">星形(開発中)</option>
             </select>
             <br><hr>
             <table id="alldata">
@@ -185,6 +189,33 @@
 
 
             </table>
+            <table id="select5">
+                <tr>
+                    <th>
+                        星形
+                    </th>
+                </tr>
+                <tr>
+                    <td>頂点の数</td>
+                    <td><input type="number" value="5" step="1" id="type5_tyouten"></td>
+                </tr>
+                <tr>
+                    <td>鋭角の半径</td>
+                    <td><input type="number" value="50" step="1" id="type5_r1"></td>
+                    <td>鈍角の半径</td>
+                    <td><input type="number" value="25" step="1" id="type5_r2"></td>
+                </tr>
+                <tr>
+                    <td>角度</td>
+                    <td><input type="number" value="-90" step="1" id="type5_rotate"></td>
+                </tr>
+                <tr>
+                    <td><label>追加の色を入れる<input type="checkbox" id="type5_tuikacolor"></label></td>
+                    <td><label>追加の色<input type="color" value="#ffffff" id="type5_tuikacolorcolor"></label></td>
+                    <td><label>追加の色に線がいるか<input type="checkbox" id="type5_tuikatensen"></label></td>
+                </tr>
+
+            </table>
             <!--
             
                 <tr>
@@ -241,6 +272,8 @@
 
     
     <script language="javascript" type="text/javascript">
+
+
         document.getElementById('Edit').addEventListener('change',function(event){
             
             document.getElementById("stroke-test").innerHTML = '<svg viewBox="0 0 120 10" width="120" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M5,0L115,0" stroke-width="5" stroke="#000000" stroke-dasharray="' + document.getElementById('stroke-dash-array').value + '" stroke-dashoffset="' + document.getElementById('stroke-dash-array').value + '" /></svg>';
@@ -284,6 +317,71 @@
                 typechange(4);
                 
 
+            }else if (zukeitype=="type5"){
+                typechange(5);
+                const type5_tuikacolor = document.getElementById("type5_tuikacolorcolor").value;
+                const type5_r1 = document.getElementById("type5_r1").value;
+                const type5_r2 = document.getElementById("type5_r2").value;
+                const type5_tyouten = document.getElementById("type5_tyouten").value;
+                let rotate = Number(document.getElementById("type5_rotate").value);
+                Data = Data + "<path d='M";
+                Data = Data + (x_mannnaka + (Math.cos(deg_to_rad(rotate))*type5_r1));
+                Data = Data + ",";
+                Data = Data + (y_mannnaka + (Math.sin(deg_to_rad(rotate))*type5_r1));
+                rotate+= 360/(type5_tyouten*2);
+                Data = Data + "L";
+                Data = Data + (x_mannnaka + (Math.cos(deg_to_rad(rotate))*type5_r2));
+                Data = Data + ",";
+                Data = Data + (y_mannnaka + (Math.sin(deg_to_rad(rotate))*type5_r2));
+                rotate+= 360/(type5_tyouten*2);
+                for (let i = 0; i < (type5_tyouten-1); i++) {
+                    Data = Data + "L";
+                    Data = Data + (x_mannnaka + (Math.cos(deg_to_rad(rotate))*type5_r1));
+                    Data = Data + ",";
+                    Data = Data + (y_mannnaka + (Math.sin(deg_to_rad(rotate))*type5_r1));
+                    rotate+= 360/(type5_tyouten*2);
+                    Data = Data + "L";
+                    Data = Data + (x_mannnaka + (Math.cos(deg_to_rad(rotate))*type5_r2));
+                    Data = Data + ",";
+                    Data = Data + (y_mannnaka + (Math.sin(deg_to_rad(rotate))*type5_r2));
+                    rotate+= 360/(type5_tyouten*2);
+                }
+                Data = Data + "z' ";
+                Data = Data + "fill='" + fill_color + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "' style='mix-blend-mode:" + mbm + "'/>";
+
+                if(document.getElementById("type5_tuikacolor").checked){
+                    rotate = Number(document.getElementById("type5_rotate").value);
+                    for (let i = 0; i < type5_tyouten; i++) {
+                        Data = Data + "<path d='M";
+                        Data = Data + x_mannnaka;
+                        Data = Data + ",";
+                        Data = Data + y_mannnaka;
+                        Data = Data + "L";
+                        Data = Data + (x_mannnaka + (Math.cos(deg_to_rad(rotate))*type5_r1));
+                        Data = Data + ",";
+                        Data = Data + (y_mannnaka + (Math.sin(deg_to_rad(rotate))*type5_r1));
+                        rotate+= 360/(type5_tyouten*2);
+                        Data = Data + "L";
+                        Data = Data + (x_mannnaka + (Math.cos(deg_to_rad(rotate))*type5_r2));
+                        Data = Data + ",";
+                        Data = Data + (y_mannnaka + (Math.sin(deg_to_rad(rotate))*type5_r2));
+                        rotate+= 360/(type5_tyouten*2);
+                        Data = Data + "z' ";
+                        if(document.getElementById("type5_tuikatensen").checked){
+                            Data = Data + "fill='" + type5_tuikacolor + "' stroke='" + stroke_color + "' opacity='" + opacity + "' stroke-dasharray='" + stroke_dash_array + "' stroke-dashoffset='" + stroke_dash_offset + "'stroke-width='" + stroke_thickness + "' style='mix-blend-mode:" + mbm + "'/>";
+
+                        }else{
+                            Data = Data +"fill='" + type5_tuikacolor + "'/>";
+                        }
+                    
+
+                }
+                
+                    
+                }else{
+                    
+                }
+
             }
 
             Data = Data + "</svg>";
@@ -309,6 +407,11 @@
                 document.getElementById("select4").style.display = "inline";
             }else{
                 document.getElementById("select4").style.display = "none";
+            }
+            if(typer==5){
+                document.getElementById("select5").style.display = "inline";
+            }else{
+                document.getElementById("select5").style.display = "none";
             }
         }
         
@@ -366,6 +469,7 @@
         function downloading(){
             downloadAsFile(document.getElementById("return_viewbox").innerHTML,"download.svg");
         }
+
     </script>
 
 
