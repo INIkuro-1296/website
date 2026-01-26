@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="ぼかしツール" content="ぼかしツール">
+    <title>
+        ぼかしツール
+    </title>
+
+    <style>
+        .flex{
+            display: flex;
+        }
+        .rightmove{
+            margin-left:auto;
+        }
+        .topmove{
+            margin:auto;
+        }
+        th{
+            border: 1px black solid;
+        }
+        tr{
+            border: 1px black solid;
+        }
+        td{
+            border: 1px black solid;
+        }
+
+        
+        #select2{
+            display: none;
+        }
+        #select3{
+            display: none;
+        }
+        #select4{
+            display: none;
+        }
+        #select5{
+            display: none;
+        }
+        #return_viewbox{
+            background-color:#f0f0f0;
+
+        }
+        canvas{
+            width: 480px;
+            height: 360px;
+            /*border: solid 0px #000;*/
+        }
+    </style>
+<script language="javascript" type="text/javascript">
+
+
+
+</script>
+
+
+</head>
+<body>
+    <h1>ぼかしフィルタ.html</h1>
+
+        <!-- メッセージの入力エリア -->
+        <div id="Edit">
+            <input type="file" id="selectFile" accept=".png,.jpeg">
+            <br>
+            ぼかしの強さ
+            <input type="number" id="bokashi" value="3">
+
+        </div>
+        
+<!--<div id="return_viewbox">-->
+
+  <canvas id="canvas" width="480" height="360"></canvas>
+
+
+<!--</div>-->
+
+
+    <!--<input type="button" value="ダウンロード" onclick="downloading()">-->
+<button id="download">download</button>
+    
+    <script language="javascript" type="text/javascript">
+
+
+        document.getElementById('Edit').addEventListener('change',function(event){
+            //document.getElementById('canvas').style.width = document.getElementById('width').value;
+            //document.getElementById('canvas').style.height = document.getElementById('height').value;
+
+
+    });
+    var selFile = document.getElementById('selectFile'); // input type="file"の要素取得
+    var c = document.getElementById('canvas'); // canvasの要素取得
+    var ctx = c.getContext('2d');
+
+    selFile.addEventListener("change", function(evt){
+    var file = evt.target.files; // fileの取得
+    var reader = new FileReader();
+
+    reader.readAsDataURL(file[0]); // fileの要素をdataURL形式で読み込む
+
+    // ファイルを読み込んだ時に実行する
+    reader.onload = function(){
+        var dataUrl = reader.result; // 読み込んだファイルURL
+        var img = new Image(); // 画像
+  
+        img.src = dataUrl;
+        
+        // 画像が読み込んだ時に実行する
+        img.onload = function() {
+            // canvasに画像ソースを設定する
+            const bokashituyosa = document.getElementById('bokashi').value;
+            console.log(img.naturalWidth);
+            console.log(img.naturalHeight);
+            document.getElementById('canvas').width = img.naturalWidth + Number(bokashituyosa*2);
+            document.getElementById('canvas').height = img.naturalHeight + Number(bokashituyosa*2);
+            document.getElementById('canvas').style.width = (img.naturalWidth + Number(bokashituyosa*2)) + "px";
+            document.getElementById('canvas').style.height = (img.naturalHeight + Number(bokashituyosa*2)) + "px";
+            ctx.drawImage(img, bokashituyosa, bokashituyosa,img.naturalWidth,img.naturalHeight);
+            bokashizikkou();
+            // 画像のサイズを設定する場合
+            // ctx.drawImage(img, 0, 0, 300, 400); heightとwidthも合わせて設定可能
+        }
+    }
+    }, false);
+    function bokashizikkou(){
+        const canvas = document.getElementById("canvas");
+        const canvasCtx = document.getElementById("canvas").getContext('2d');
+        let imageData = canvasCtx.getImageData(0, 0, canvas.width, canvas.height);
+        const data      = imageData.data;
+        const bokashituyosa = document.getElementById('bokashi').value;
+        console.log(data);
+        let colordata = data;
+        for (let i = 0; i<data.length; i++){
+            let countercolor = 0;
+            for (let j = -1*bokashituyosa; j<=bokashituyosa; j++){
+                for (let k = -1*bokashituyosa; k<=bokashituyosa; k++){
+                    const x = (Math.ceil(i/4) % canvas.width) + j;
+                    const y = Math.ceil(Math.ceil(i/4) / canvas.width) + k;
+                    if(!(x<0||canvas.width<=x)){
+                        if(!(y<0||canvas.height<=y)){
+                            countercolor += data[(x + (y*canvas.width))*4 + (i%4)];
+                        }
+                    }
+
+                }
+            }
+            countercolor = countercolor / (Math.pow(Number(bokashituyosa*2)+1,2));
+            colordata[i] = countercolor;
+
+        }
+        console.log(colordata);
+        imageData.data = colordata;
+        canvasCtx.putImageData(imageData,0,0);
+        
+    }
+
+    document.getElementById("download").onclick = (event) => {
+	    let canvas = document.getElementById("canvas");
+
+	    let link = document.createElement("a");
+	    link.href = canvas.toDataURL("image/png");
+	    link.download = "download.png";
+	    link.click();
+    }
+
+   
+        
+        
+            
+        function deg_to_rad(deg){
+            return deg / (180/Math.PI);
+        }
+        function rad_to_deg(rad){
+            return rad * (180/Math.PI);
+        }
+        function colorrandom(){
+            let colrandom = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+            var a = "";
+            for (let i = 0; i < 6; i++) {
+                a = a + colrandom[Math.floor(Math.random()*16)];
+                
+            }
+            return a;
+        }
+        class Random {
+            constructor(seed = 88675123) {
+            this.x = 123456789;
+            this.y = 362436069;
+            this.z = 521288629;
+            this.w = seed;
+            }
+  
+            
+            next() {
+            let t;
+ 
+            t = this.x ^ (this.x << 11);
+            this.x = this.y; this.y = this.z; this.z = this.w;
+            return this.w = (this.w ^ (this.w >>> 19)) ^ (t ^ (t >>> 8)); 
+            }
+            
+            nextInt(min, max) {
+                const r = Math.abs(this.next());
+                return min + (r % (max + 1 - min));
+            }
+        }
+        function downloadAsFile(text, filename) {
+            const blob = new Blob([text], { type: "text/plain"});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloading(){
+            downloadAsFile(document.getElementById("return_viewbox").innerHTML,"download.svg");
+        }
+
+    </script>
+
+
+</body>
+
+
+</html>
