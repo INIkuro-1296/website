@@ -60,6 +60,22 @@
             "verified_attempts": -1
         }
     },
+    
+    {
+        "level_name": "MAYOCE",
+        "level_UUID": "29df2a59-6b27-4eee-bd73-63a43a8bd6ae",
+        "creator": "1e801cc7-e10b-40cc-a466-583268688e75",
+        "verifier": "1e801cc7-e10b-40cc-a466-583268688e75",
+        "publisher": "1e801cc7-e10b-40cc-a466-583268688e75",
+        "video": "https://www.youtube.com/embed/S0DBb3BMxrw",
+        "level_id": 152537395,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
     {
         "level_name": "Mayoreta",
         "level_UUID": "84f572d5-a5c7-4294-bfef-fe123674f70d",
@@ -75,6 +91,7 @@
             "verified_attempts": 129
         }
     },
+    
     {
         "level_name": "mayo challenge",
         "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
