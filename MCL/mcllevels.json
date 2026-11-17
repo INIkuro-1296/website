@@ -1,0 +1,78 @@
+[
+    {
+        "level_name": "The Mayoop",
+        "level_UUID": "6394c20a-7c04-44c9-8784-8732da0d1ec5",
+        "creator": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "verifier": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "publisher": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "video": "https://www.youtube.com/embed/gB8slBPlOjc",
+        "level_id": 152499455,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+    {
+        "level_name": "mayoking adventures",
+        "level_UUID": "40e07ce9-78e5-4fc7-a513-7e4eb6b376fc",
+        "creator": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "verifier": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "publisher": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "video": "https://www.youtube.com/embed/gB8slBPlOjc",
+        "level_id": 152196811,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+    {
+        "level_name": "mayoking space",
+        "level_UUID": "93b9c480-6e70-4db1-a5bc-877dfbd72d80",
+        "creator": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "verifier": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "publisher": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "video": "https://www.youtube.com/embed/CELNmHwln_c",
+        "level_id": 152493098,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+    {
+        "level_name": "Mayoreta",
+        "level_UUID": "84f572d5-a5c7-4294-bfef-fe123674f70d",
+        "creator": "53310913-6bd0-47b0-b5b2-ea82b11cb3d7",
+        "verifier": "53310913-6bd0-47b0-b5b2-ea82b11cb3d7",
+        "publisher": "53310913-6bd0-47b0-b5b2-ea82b11cb3d7",
+        "video": "https://www.youtube.com/embed/fU3OKdWOCfw",
+        "level_id": 152507968,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": 15,
+            "verified_attempts": 129
+        }
+    },
+    {
+        "level_name": "mayo challenge",
+        "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+        "creator": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "verifier": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "publisher": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "video": "https://www.youtube.com/embed/CELNmHwln_c",
+        "level_id": 145060385,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    }
+
+]

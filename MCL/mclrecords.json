@@ -1,0 +1,49 @@
+[
+    {
+        "victor": "d73c5970-f3b8-40b2-a234-5a65e100197b",
+        "level_UUID": "40e07ce9-78e5-4fc7-a513-7e4eb6b376fc",
+        "attempts": -1
+    },
+    {
+        "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+        "level_UUID": "93b9c480-6e70-4db1-a5bc-877dfbd72d80",
+        "attempts": -1
+    },
+    {
+        "victor": "f26b8214-72f7-499d-a0a0-eca9ae163f3f",
+        "level_UUID": "93b9c480-6e70-4db1-a5bc-877dfbd72d80",
+        "attempts": -1
+    },
+    {
+        "victor": "9042ccc3-6d57-4d61-93d8-fc850406dead",
+        "level_UUID": "93b9c480-6e70-4db1-a5bc-877dfbd72d80",
+        "attempts": 736
+    },
+    {
+        "victor": "10e60995-1b9d-4a49-b731-bc2beb636c70",
+        "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+        "attempts": -1
+    },
+    {
+        "victor": "e13bdb49-aff6-461b-9e51-bfdb2f2985d7",
+        "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+        "attempts": -1
+    },
+    {
+        "victor": "1e801cc7-e10b-40cc-a466-583268688e75",
+        "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+        "attempts": -1
+    },
+    {
+        "victor": "53310913-6bd0-47b0-b5b2-ea82b11cb3d7",
+        "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+        "attempts": 25
+    },
+    {
+        "victor": "306326eb-b835-4322-bfd0-3df5337b6ba8",
+        "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+        "attempts": -1
+    }
+
+
+]
