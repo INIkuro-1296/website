@@ -31,6 +31,21 @@
         }
     },
     {
+        "level_name": "Ultra Mayocosm",
+        "level_UUID": "68279274-14fc-443e-a129-fd3d5eab02f0",
+        "creator": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "verifier": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "publisher": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
+        "video": "https://www.youtube.com/embed/tg781a_UIGw",
+        "level_id": 152536191,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+    {
         "level_name": "mayoking space",
         "level_UUID": "93b9c480-6e70-4db1-a5bc-877dfbd72d80",
         "creator": "ab09bd4e-b3bc-4bcf-a6b1-3efc2c0cf8c7",
