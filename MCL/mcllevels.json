@@ -62,6 +62,22 @@
     },
     
     {
+        "level_name": "mayontum process sp",
+        "level_UUID": "585be1cb-38a2-4115-acf1-8f5d7b798b53",
+        "creator": "6a944020-2ab0-4408-8e45-fd5df773ee07",
+        "verifier": "6a944020-2ab0-4408-8e45-fd5df773ee07",
+        "publisher": "6a944020-2ab0-4408-8e45-fd5df773ee07",
+        "video": "https://www.youtube.com/embed/D9zc5GZlYDk",
+        "level_id": 152538657,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+    
+    {
         "level_name": "MAYOCE",
         "level_UUID": "29df2a59-6b27-4eee-bd73-63a43a8bd6ae",
         "creator": "1e801cc7-e10b-40cc-a466-583268688e75",
