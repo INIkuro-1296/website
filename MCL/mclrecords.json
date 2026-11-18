@@ -105,6 +105,58 @@
                 "victor": "9e057df8-db14-4a26-8659-9c0f04aedc38",
                 "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
                 "attempts": 430
+            },{
+                "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+                "level_UUID": "68279274-14fc-443e-a129-fd3d5eab02f0",
+                "attempts": 188
+            },{
+                "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+                "level_UUID": "b08225d9-bb8c-46d1-a8fd-4e3de3cd25f6",
+                "attempts": 129
+            },{
+                "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+                "level_UUID": "585be1cb-38a2-4115-acf1-8f5d7b798b53",
+                "attempts": 88
+            }
+,{
+                "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+                "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+                "attempts": 19
+            },{
+                "victor": "1e801cc7-e10b-40cc-a466-583268688e75",
+                "level_UUID": "b08225d9-bb8c-46d1-a8fd-4e3de3cd25f6",
+                "attempts": 551
+            },{
+                "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+                "level_UUID": "84f572d5-a5c7-4294-bfef-fe123674f70d",
+                "attempts": 19
+            }
+,{
+                "victor": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+                "level_UUID": "29df2a59-6b27-4eee-bd73-63a43a8bd6ae",
+                "attempts": 86
+            },{
+                "victor": "121b6605-897e-4582-8395-3acb491dd602",
+                "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+                "attempts": 55
+            },{
+                "victor": "f26b8214-72f7-499d-a0a0-eca9ae163f3f",
+                "level_UUID": "394902ac-197c-4578-8977-6eb26daf47a9",
+                "attempts": 66
+            }
+,{
+                "victor": "f26b8214-72f7-499d-a0a0-eca9ae163f3f",
+                "level_UUID": "29df2a59-6b27-4eee-bd73-63a43a8bd6ae",
+                "attempts": 3
+            }
+,{
+                "victor": "f26b8214-72f7-499d-a0a0-eca9ae163f3f",
+                "level_UUID": "84f572d5-a5c7-4294-bfef-fe123674f70d",
+                "attempts": 12
+            },{
+                "victor": "121b6605-897e-4582-8395-3acb491dd602",
+                "level_UUID": "84f572d5-a5c7-4294-bfef-fe123674f70d",
+                "attempts": 45
             }
 
 
