@@ -1,5 +1,20 @@
 [
-    
+    {
+        "level_name": "mayyond clubstep",
+        "level_UUID": "eed0ffc1-0f7a-4804-8fb3-8112bd3be886",
+        "creator": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+        "verifier": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+        "publisher": "57faa3ad-2c45-4287-9cad-98b5528b940b",
+        "video": "https://www.youtube.com/embed/N8Ivz_R62h8",
+        "level_id": 152196811,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+
     {
         "level_name": "mayoking adventures",
         "level_UUID": "40e07ce9-78e5-4fc7-a513-7e4eb6b376fc",
