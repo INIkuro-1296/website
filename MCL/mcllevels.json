@@ -62,7 +62,7 @@
     },
 
     {
-        "level_name": "Ketchup",
+        "level_name": "Ketchup (Zectium)",
         "level_UUID": "b08225d9-bb8c-46d1-a8fd-4e3de3cd25f6",
         "creator": "9e057df8-db14-4a26-8659-9c0f04aedc38",
         "verifier": "9e057df8-db14-4a26-8659-9c0f04aedc38",
@@ -106,7 +106,36 @@
             "verified_attempts": -1
         }
     },
-    
+    {
+        "level_name": "You were mayonnaise",
+        "level_UUID": "1197a623-15e2-4767-ae10-ddd36f9abf65",
+        "creator": "6a944020-2ab0-4408-8e45-fd5df773ee07",
+        "verifier": "6a944020-2ab0-4408-8e45-fd5df773ee07",
+        "publisher": "6a944020-2ab0-4408-8e45-fd5df773ee07",
+        "video": "https://www.youtube.com/embed/hyHJdfLU5DM",
+        "level_id": 152672314,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
+    {
+        "level_name": "Maro Circles",
+        "level_UUID": "b8ac977a-2438-4153-8818-56b045b7c852",
+        "creator": "10e60995-1b9d-4a49-b731-bc2beb636c70",
+        "verifier": "10e60995-1b9d-4a49-b731-bc2beb636c70",
+        "publisher": "10e60995-1b9d-4a49-b731-bc2beb636c70",
+        "video": "https://www.youtube.com/embed/hyHJdfLU5DM",
+        "level_id": 152712412,
+        "FPS": 240,
+        "Reference": {
+            "frame_window_precision": -1,
+            "length_second": -1,
+            "verified_attempts": -1
+        }
+    },
     
     {
         "level_name": "Mayoreta",
